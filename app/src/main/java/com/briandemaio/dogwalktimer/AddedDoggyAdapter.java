@@ -43,14 +43,10 @@ public class AddedDoggyAdapter extends RecyclerView.Adapter<AddedDoggyAdapter.Do
             holder.doggyTimer = new CountDownTimer(current.getExpiryTime()-System.currentTimeMillis(), 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    int days = (int) (millisUntilFinished / (1000*60*60*24));
                     int hours = (int) (millisUntilFinished / (1000*60*60)%24);
                     int minutes = (int) (millisUntilFinished / (1000*60)%60);
                     int seconds = (int) (millisUntilFinished / 1000) % 60;
-                    if(days>0) {
-                        holder.doggyTimerView.setText(" " + days + "d: "+ hours + "h: "+minutes+"m: "+seconds+"s");
-                    }
-                    else if(hours > 0){
+                    if(hours > 0){
                         holder.doggyTimerView.setText(" "+ hours+" h:" + minutes + " m:"+seconds+" s");
                     }
                     else{

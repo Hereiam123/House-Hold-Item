@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onWalkItemClick(View v, int position) {
                 Doggy doggy = adapter.getDoggyAtPosition(position);
-                long expiryTime = System.currentTimeMillis() + 604800000;
+                long expiryTime = System.currentTimeMillis() + 43200000;
                 doggy.setExpiryTime(expiryTime);
                 setDoggyTimeAlarm(doggy);
                 mDoggyViewModel.update(doggy);
@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == NEW_DOGGY_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            long triggerTime = System.currentTimeMillis() + 604800000;
+            long triggerTime = System.currentTimeMillis() + 43200000;
             Doggy doggy = new Doggy(data.getStringExtra(EXTRA_REPLY), data.getIntExtra("imageID", 0), triggerTime);
             mDoggyViewModel.insert(doggy);
             setDoggyTimeAlarm(doggy);
