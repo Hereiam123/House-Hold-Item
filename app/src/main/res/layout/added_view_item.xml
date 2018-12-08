@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/recycler_reset_timer"
-            android:src="@drawable/ic_water_drop"
+            android:src="@drawable/ic_paws"
             android:contentDescription="@string/button_to_water_plant" />
 
         <TextView
