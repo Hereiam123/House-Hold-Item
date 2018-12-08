@@ -8,11 +8,10 @@
 
     <!-- Your product logo - 144dp color version of your app icon -->
     <item>
-
         <bitmap
             android:src="@drawable/launch"
-            android:gravity="center"/>
-
+            android:gravity="center"
+            android:scaleType="centerCrop"/>
     </item>
 
 </layer-list>

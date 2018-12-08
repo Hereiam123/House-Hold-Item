@@ -20,11 +20,11 @@
         android:layout_margin="8dp"
         android:scaleType="fitXY">
         <ImageView
-            android:id="@+id/recycler_imageview_succulent_art"
+            android:id="@+id/recycler_imageview_doggy_art"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:contentDescription="@string/added_succulent_plant" />
+            android:contentDescription="@string/added_doggy" />
     </FrameLayout>
 
     <LinearLayout
@@ -43,13 +43,13 @@
             android:contentDescription="@string/button_to_water_plant" />
 
         <TextView
-            android:id="@+id/recycler_textview_succulent_timeleft"
+            android:id="@+id/recycler_textview_doggy_timeleft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
 
         <TextView
-            android:id="@+id/recycler_textview_succulent_name"
+            android:id="@+id/recycler_textview_doggy_name"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_width="wrap_content"

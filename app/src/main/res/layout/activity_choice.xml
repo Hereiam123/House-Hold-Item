@@ -7,7 +7,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <FrameLayout
-        android:id="@+id/succulent_choice_placeholder"
+        android:id="@+id/doggy_choice_placeholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </FrameLayout>

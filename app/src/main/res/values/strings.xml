@@ -1,16 +1,16 @@
 <resources>
-    <string name="app_name">How Often To - Water Succulents</string>
-    <string name="image_of_succulent_chosen">Image of Succulent Chosen</string>
+    <string name="app_name">How Often To - Walk the Dog</string>
+    <string name="image_of_doggy_chosen">Image of Doggy Chosen</string>
     <string name="set_and_save_button_text">Set and Save</string>
     <string name="reverse_order">Reverse Order</string>
     <string name="original_order">A to Z</string>
-    <string name="added_succulent_plant">Added Succulent Plant</string>
-    <string name="button_to_water_plant">Button to water plant</string>
-    <string name="succulent_plant_chosen_for_adding">Succulent plant chosen for adding</string>
-    <string name="succulent_name_placeholder">Enter Succulent Name</string>
+    <string name="added_doggy">Added Doggy</string>
+    <string name="button_to_water_plant">Button to walk the dog</string>
+    <string name="doggy_chosen_for_adding">Doggy chosen for adding</string>
+    <string name="doggy_name_placeholder">Enter Doggy Name</string>
 
     <string-array
-        name="succulent_types_array">
+        name="doggy_types_array">
         <item name="sedaveria">Sedavaria</item>
         <item name="aloe_vera">Aloe Vera</item>
         <item name="snake_plant">Snake Plant</item>
@@ -33,16 +33,16 @@
     <string name="start">GOT IT</string>
 
     <string name="slide_1_title">Welcome!</string>
-    <string name="slide_1_desc">How Often To - Water Succulents!</string>
+    <string name="slide_1_desc">How Often To - Walk the Dog!</string>
 
-    <string name="slide_2_title">Add Your Succulent!</string>
+    <string name="slide_2_title">Add Your Doggy!</string>
     <string name="slide_2_desc">Click the Plus Button to start adding!</string>
 
     <string name="slide_3_title">Swipe away the Trash</string>
-    <string name="slide_3_desc">Swipe left or right on an added Succulent to view menu options!</string>
+    <string name="slide_3_desc">Swipe left or right on an added Doggy to view menu options!</string>
 
-    <string name="slide_4_title">Click the Water Button</string>
-    <string name="slide_4_desc">Click on the Water Icon to reset a friends timer!</string>
+    <string name="slide_4_title">Click the Walk Button</string>
+    <string name="slide_4_desc">Click on the Walk Icon to reset a friends timer!</string>
 
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>
