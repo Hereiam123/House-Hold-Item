@@ -145,12 +145,11 @@ public class MainActivity extends AppCompatActivity{
                             // Launch Time Picker Dialog
                             TimePickerDialog timePickerDialog = new TimePickerDialog(v.getContext(),
                                     new TimePickerDialog.OnTimeSetListener() {
-
                                         @Override
                                         public void onTimeSet(TimePicker view, int hourOfDay,
                                                               int minute) {
                                             Item item = adapter.getItemAtPosition(position);
-                                            long expiryTime = dayOfMonth + hourOfDay + minute;
+                                            long expiryTime = (dayOfMonth * 86400000) + (hourOfDay*3600000) + (minute * 60000);
                                             item.setExpiryTime(expiryTime);
                                             setItemTimeAlarm(item);
                                             mItemViewModel.update(item);
