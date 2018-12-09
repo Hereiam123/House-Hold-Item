@@ -136,12 +136,14 @@ public class MainActivity extends AppCompatActivity{
                     // Get Current Time
                     final Calendar c = Calendar.getInstance();
                     final int mYear = c.get(Calendar.YEAR);
+                    final int mMonth = c.get(Calendar.MONTH);
+                    final int mDay = c.get(Calendar.DAY_OF_MONTH);
                     final int mHour = c.get(Calendar.HOUR_OF_DAY);
                     final int mMinute = c.get(Calendar.MINUTE);
 
                     DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                         @Override
-                        public void onDateSet(DatePicker view, int year, int month, final int dayOfMonth) {
+                        public void onDateSet(DatePicker view, final int year, final int month, final int dayOfMonth) {
                             // Launch Time Picker Dialog
                             TimePickerDialog timePickerDialog = new TimePickerDialog(v.getContext(),
                                     new TimePickerDialog.OnTimeSetListener() {
@@ -149,7 +151,7 @@ public class MainActivity extends AppCompatActivity{
                                         public void onTimeSet(TimePicker view, int hourOfDay,
                                                               int minute) {
                                             Item item = adapter.getItemAtPosition(position);
-                                            long expiryTime = (dayOfMonth * 86400000) + (hourOfDay*3600000) + (minute * 60000);
+                                            long expiryTime = (year * 31556952000L) + (month * 2629746000L) + (dayOfMonth * 86400000) + (hourOfDay*3600000) + (minute * 60000);
                                             item.setExpiryTime(expiryTime);
                                             setItemTimeAlarm(item);
                                             mItemViewModel.update(item);
@@ -157,7 +159,7 @@ public class MainActivity extends AppCompatActivity{
                                     }, mHour, mMinute, false);
                             timePickerDialog.show();
                         }
-                    }, mYear, mHour, mMinute);
+                    }, mYear, mMonth, mDay);
                     datePickerDialog.show();
                 }
                 else{
