@@ -32,8 +32,8 @@ public class AlarmReceiver extends BroadcastReceiver {
                 (context, mId, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL_ID)
                 .setSmallIcon(R.drawable.household_item_1)
-                .setContentTitle("Walk Me!")
-                .setContentText("You should walk "+mName+", your friend!")
+                .setContentTitle("Cleaning Task Alarm!")
+                .setContentText("Your task for "+mName+", should be started")
                 .setContentIntent(contentPendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true)
