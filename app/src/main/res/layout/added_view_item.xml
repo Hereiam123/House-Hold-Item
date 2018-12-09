@@ -38,7 +38,7 @@
         <Button
             android:id="@+id/recycler_edit_timer"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:text="Edit Timer"/>
         <ImageButton
             android:id="@+id/recycler_reset_timer"

@@ -8,7 +8,6 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onWalkItemClick(View v, int position) {
                 Item item = adapter.getItemAtPosition(position);
-                long expiryTime = System.currentTimeMillis() + 43200000;
+                long expiryTime = System.currentTimeMillis() + getResources().getInteger(R.integer.default_timer_value);
                 item.setExpiryTime(expiryTime);
                 setItemTimeAlarm(item);
                 mItemViewModel.update(item);
@@ -244,7 +243,7 @@ public class MainActivity extends AppCompatActivity{
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == NEW_ITEM_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            long triggerTime = System.currentTimeMillis() + 43200000;
+            long triggerTime = System.currentTimeMillis() + getResources().getInteger(R.integer.default_timer_value);
             Item item = new Item(data.getStringExtra(ChoiceActivity.EXTRA_REPLY), data.getIntExtra("imageID", 0), triggerTime);
             mItemViewModel.insert(item);
             setItemTimeAlarm(item);

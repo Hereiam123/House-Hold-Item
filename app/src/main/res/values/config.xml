@@ -2,4 +2,7 @@
 <resources>
     <integer name="grid_column_count">1</integer>
     <bool name="twoPaneMode">false</bool>
+    <integer name="default_timer_value">
+        604800000
+    </integer>
 </resources>
