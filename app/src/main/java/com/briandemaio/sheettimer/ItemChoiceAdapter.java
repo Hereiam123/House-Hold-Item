@@ -10,25 +10,28 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class ItemChoiceAdapter extends BaseAdapter {
 
     private final Context mContext;
-    private final Item[] items;
+    private final ArrayList<Item> items;
     private OnItemSelectedListener listener;
 
-    public ItemChoiceAdapter(Context context, Item[] items){
+    public ItemChoiceAdapter(Context context, ArrayList<Item> items){
         this.mContext = context;
         this.items = items;
     }
 
     @Override
     public int getCount() {
-        return items.length;
+        return items.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return items[position];
+        return items.get(position);
     }
 
     @Override
@@ -39,7 +42,7 @@ public class ItemChoiceAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        final Item item = items[position];
+        final Item item = items.get(position);
 
         final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         convertView = layoutInflater.inflate(R.layout.choice_view_item, null);
