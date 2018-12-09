@@ -14,7 +14,7 @@
         <ImageView
             android:layout_width="@dimen/img_width_height"
             android:layout_height="@dimen/img_width_height"
-            android:src = "@drawable/ic_paws"  />
+            android:src = "@drawable/doggy_1_beagle"  />
 
         <TextView
             android:layout_width="wrap_content"

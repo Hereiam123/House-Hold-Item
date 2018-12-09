@@ -1,16 +1,16 @@
 <resources>
-    <string name="app_name">How Often To - Walk the Dog</string>
-    <string name="image_of_doggy_chosen">Image of Doggy Chosen</string>
+    <string name="app_name">How Often To - Clean the House</string>
+    <string name="image_of_item_chosen">Image of Household Item Chosen</string>
     <string name="set_and_save_button_text">Set and Save</string>
     <string name="reverse_order">Reverse Order</string>
     <string name="original_order">A to Z</string>
-    <string name="added_doggy">Added Doggy</string>
-    <string name="button_to_water_plant">Button to walk the dog</string>
-    <string name="doggy_chosen_for_adding">Doggy chosen for adding</string>
-    <string name="doggy_name_placeholder">Enter Doggy Name</string>
+    <string name="added_item">Added Item</string>
+    <string name="button_to_clean_item">Button to clean the item</string>
+    <string name="item_chosen_for_adding">Item chosen for adding</string>
+    <string name="item_name_placeholder">Enter Item Name</string>
 
     <string-array
-        name="doggy_types_array">
+        name="item_types_array">
         <item name="beagle">Beagle</item>
         <item name="pug">Pug</item>
         <item name="bulldog">Bull Dog</item>
@@ -26,13 +26,13 @@
     <string name="start">GOT IT</string>
 
     <string name="slide_1_title">Welcome!</string>
-    <string name="slide_1_desc">How Often To - Walk the Dog!</string>
+    <string name="slide_1_desc">How Often To - Clean the House!</string>
 
-    <string name="slide_2_title">Add Your Doggy!</string>
+    <string name="slide_2_title">Add Your Household Items!</string>
     <string name="slide_2_desc">Click the Plus Button to start adding!</string>
 
     <string name="slide_3_title">Swipe away the Trash</string>
-    <string name="slide_3_desc">Swipe left or right on an added Doggy to view menu options!</string>
+    <string name="slide_3_desc">Swipe left or right on an added Household Item to view menu options!</string>
 
     <string name="slide_4_title">Click the Walk Button</string>
     <string name="slide_4_desc">Click on the Walk Icon to reset a friends timer!</string>

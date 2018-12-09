@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.briandemaio.dogwalktimer">
+    package="com.briandemaio.sheettimer">
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,7 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-2580444339985264~2266710154"/>
-        <activity android:name="com.briandemaio.dogwalktimer.WelcomeActivity"
+        <activity android:name="com.briandemaio.sheettimer.WelcomeActivity"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.briandemaio.dogwalktimer.MainActivity"
+            android:name="com.briandemaio.sheettimer.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
@@ -31,10 +31,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.briandemaio.dogwalktimer.ChoiceActivity"
-            android:parentActivityName="com.briandemaio.dogwalktimer.MainActivity"></activity>
+            android:name="com.briandemaio.sheettimer.ChoiceActivity"
+            android:parentActivityName="com.briandemaio.sheettimer.MainActivity"></activity>
         <receiver
-            android:name="com.briandemaio.dogwalktimer.AlarmReceiver"
+            android:name="com.briandemaio.sheettimer.AlarmReceiver"
             android:enabled="true"
             android:exported="false"></receiver>
     </application>

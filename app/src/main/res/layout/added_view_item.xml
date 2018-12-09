@@ -14,17 +14,17 @@
     >
 
     <FrameLayout
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:layout_marginTop="8dp"
         android:layout_margin="8dp"
         android:scaleType="fitXY">
         <ImageView
-            android:id="@+id/recycler_imageview_doggy_art"
+            android:id="@+id/recycler_imageview_item_art"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:contentDescription="@string/added_doggy" />
+            android:contentDescription="@string/added_item" />
     </FrameLayout>
 
     <LinearLayout
@@ -36,20 +36,21 @@
         android:gravity="end"
         android:layout_marginEnd="8dp">
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/recycler_reset_timer"
-            android:src="@drawable/ic_paws"
-            android:contentDescription="@string/button_to_water_plant" />
+            android:src="@drawable/doggy_1_beagle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/button_to_clean_item" />
 
         <TextView
-            android:id="@+id/recycler_textview_doggy_timeleft"
+            android:id="@+id/recycler_textview_item_timeleft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
 
         <TextView
-            android:id="@+id/recycler_textview_doggy_name"
+            android:id="@+id/recycler_textview_item_name"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_width="wrap_content"

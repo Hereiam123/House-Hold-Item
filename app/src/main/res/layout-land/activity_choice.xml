@@ -12,8 +12,8 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
-        class="com.briandemaio.dogwalktimer.DoggyChoiceFragment"
-        tools:layout="@layout/doggy_choice_fragment">
+        class="com.briandemaio.sheettimer.ItemChoiceFragment"
+        tools:layout="@layout/item_choice_fragment">
     </fragment>
 
     <fragment
@@ -21,8 +21,8 @@
         android:layout_width="0dp"
         android:layout_weight="2"
         android:layout_height="match_parent"
-        class="com.briandemaio.dogwalktimer.DoggyNameFragment"
-        tools:layout="@layout/doggy_name_fragment">
+        class="com.briandemaio.sheettimer.ItemNameFragment"
+        tools:layout="@layout/item_name_fragment">
     </fragment>
 
 </LinearLayout>
