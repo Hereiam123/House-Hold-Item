@@ -32,7 +32,7 @@ public class ItemNameFragment extends Fragment {
         mItemImageView = view.findViewById(R.id.itemImageView);
         mEditNameView = view.findViewById(R.id.editText);
 
-        mImageId = getResources().getIdentifier("simple_desk", "drawable", getContext().getPackageName());
+        mImageId = getResources().getIdentifier("household_item_1", "drawable", getContext().getPackageName());
 
         if(bundle != null){
             mImageId = bundle.getInt("imageId");

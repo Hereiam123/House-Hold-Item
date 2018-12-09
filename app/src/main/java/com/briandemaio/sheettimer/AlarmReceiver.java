@@ -31,7 +31,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         PendingIntent contentPendingIntent = PendingIntent.getActivity
                 (context, mId, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL_ID)
-                .setSmallIcon(R.drawable.household_item_1)
+                .setSmallIcon(R.drawable.clean_house)
                 .setContentTitle("Cleaning Task Alarm!")
                 .setContentText("Your task for "+mName+", should be started")
                 .setContentIntent(contentPendingIntent)
