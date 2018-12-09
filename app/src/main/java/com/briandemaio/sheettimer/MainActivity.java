@@ -1,11 +1,14 @@
 package com.briandemaio.sheettimer;
 
 import android.app.AlarmManager;
+import android.app.DatePickerDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -20,8 +23,11 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.List;
 
 import com.google.android.gms.ads.AdRequest;
@@ -29,7 +35,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private AdView mAdView;
 
@@ -120,6 +126,44 @@ public class MainActivity extends AppCompatActivity {
                 item.setExpiryTime(expiryTime);
                 setItemTimeAlarm(item);
                 mItemViewModel.update(item);
+            }
+
+            @Override
+            public void onEditTimeClick(final View v, final int position) {
+
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+
+                    // Get Current Time
+                    final Calendar c = Calendar.getInstance();
+                    final int mYear = c.get(Calendar.YEAR);
+                    final int mHour = c.get(Calendar.HOUR_OF_DAY);
+                    final int mMinute = c.get(Calendar.MINUTE);
+
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int month, final int dayOfMonth) {
+                            // Launch Time Picker Dialog
+                            TimePickerDialog timePickerDialog = new TimePickerDialog(v.getContext(),
+                                    new TimePickerDialog.OnTimeSetListener() {
+
+                                        @Override
+                                        public void onTimeSet(TimePicker view, int hourOfDay,
+                                                              int minute) {
+                                            Item item = adapter.getItemAtPosition(position);
+                                            long expiryTime = dayOfMonth + hourOfDay + minute;
+                                            item.setExpiryTime(expiryTime);
+                                            setItemTimeAlarm(item);
+                                            mItemViewModel.update(item);
+                                        }
+                                    }, mHour, mMinute, false);
+                            timePickerDialog.show();
+                        }
+                    }, mYear, mHour, mMinute);
+                    datePickerDialog.show();
+                }
+                else{
+                    v.findViewById(R.id.recycler_edit_timer).setVisibility(View.GONE);
+                }
             }
         });
 
@@ -216,14 +260,14 @@ public class MainActivity extends AppCompatActivity {
             // Create the NotificationChannel with all the parameters.
             NotificationChannel notificationChannel = new NotificationChannel
                     (PRIMARY_CHANNEL_ID,
-                            "Item Water Notification",
+                            "Item Cleaning Notification",
                             NotificationManager.IMPORTANCE_HIGH);
 
             notificationChannel.enableLights(true);
             notificationChannel.setLightColor(Color.RED);
             notificationChannel.enableVibration(true);
             notificationChannel.setDescription
-                    ("Notifies user to water plants");
+                    ("Notifies user to clean");
             mNotificationManager.createNotificationChannel(notificationChannel);
         }
     }

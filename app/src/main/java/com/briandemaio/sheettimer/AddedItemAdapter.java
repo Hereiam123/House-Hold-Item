@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -88,6 +89,7 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
         private final ImageView itemImageView;
         private final ImageButton itemResetView;
         private final TextView itemTimerView;
+        private final Button itemEditTimerView;
         private CountDownTimer itemTimer;
 
         private ItemViewHolder(View itemView) {
@@ -96,12 +98,19 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
             itemImageView = itemView.findViewById(R.id.recycler_imageview_item_art);
             itemTimerView = itemView.findViewById(R.id.recycler_textview_item_timeleft);
             itemResetView = itemView.findViewById(R.id.recycler_reset_timer);
+            itemEditTimerView = itemView.findViewById(R.id.recycler_edit_timer);
 
             itemResetView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     clickListener.onWalkItemClick(view, getAdapterPosition());
+                }
+            });
 
+            itemEditTimerView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    clickListener.onEditTimeClick(view, getAdapterPosition());
                 }
             });
         }
@@ -113,5 +122,6 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
 
     public interface ClickListener {
         void onWalkItemClick(View v, int position);
+        void onEditTimeClick(View v, int position);
     }
 }
