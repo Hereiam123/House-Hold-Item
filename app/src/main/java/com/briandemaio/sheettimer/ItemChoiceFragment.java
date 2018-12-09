@@ -18,14 +18,14 @@ public class ItemChoiceFragment extends Fragment {
         String[] itemTypes = getResources().getStringArray(R.array.item_types_array);
 
         Item[] items ={
-                new Item(itemTypes[0], R.drawable.),
-                new Item(itemTypes[1], R.drawable.doggy_2_teeth),
-                new Item(itemTypes[2], R.drawable.doggy_3_boxer),
-                new Item(itemTypes[3], R.drawable.doggy_4_lab),
+                new Item(itemTypes[0], R.drawable.household_item_1),
+                new Item(itemTypes[1], R.drawable.household_item_2),
+                new Item(itemTypes[2], R.drawable.household_item_3),
+                new Item(itemTypes[3], R.drawable.household_item_4)/*,
                 new Item(itemTypes[4], R.drawable.doggy_5_grey),
                 new Item(itemTypes[5], R.drawable.doggy_6_mutt),
                 new Item(itemTypes[6], R.drawable.doggy_7_lab),
-                new Item(itemTypes[7], R.drawable.doggy_8_tan)
+                new Item(itemTypes[7], R.drawable.doggy_8_tan)*/
         };
 
         ItemChoiceAdapter itemChoiceAdapter = new ItemChoiceAdapter(getActivity(), items);
