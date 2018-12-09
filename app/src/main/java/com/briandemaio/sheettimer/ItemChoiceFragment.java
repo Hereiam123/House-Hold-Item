@@ -21,8 +21,9 @@ public class ItemChoiceFragment extends Fragment {
 
         ArrayList<Item> items = new ArrayList<Item>();
 
-        for(int i=1; i<=50; i++) {
-            items.add(new Item("Frank",getResources().getIdentifier("household_item_"+i,"drawable", getContext().getPackageName())));
+        for(int i=0; i<=49; i++) {
+            int itemNum = i+1;
+            items.add(new Item(itemTypes[i],getResources().getIdentifier("household_item_"+itemNum,"drawable", getContext().getPackageName())));
         }
 
         ItemChoiceAdapter itemChoiceAdapter = new ItemChoiceAdapter(getActivity(), items);
