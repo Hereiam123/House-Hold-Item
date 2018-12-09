@@ -27,7 +27,10 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import com.google.android.gms.ads.AdRequest;
@@ -158,9 +161,15 @@ public class MainActivity extends AppCompatActivity{
                                         @Override
                                         public void onTimeSet(TimePicker view, int hourOfDay,
                                                               int minute) {
+                                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                                            Date date = null;
+                                            try {
+                                                date = sdf.parse(expirYear+"/"+expirMonth+"/"+expirDay+" "+hourOfDay+":"+minute+":00");
+                                            } catch (ParseException e) {
+                                                e.printStackTrace();
+                                            }
                                             Item item = adapter.getItemAtPosition(position);
-
-                                            long expiryTime = (expirYear + expirMonth + expirDay + hourOfDay + minute);
+                                            long expiryTime = date.getTime();
                                             item.setExpiryTime(expiryTime);
                                             setItemTimeAlarm(item);
                                             mItemViewModel.update(item);
