@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+
+import java.util.Calendar;
 import java.util.List;
 
 public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.ItemViewHolder> {
@@ -44,12 +46,17 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
             holder.itemTimer = new CountDownTimer(current.getExpiryTime()-System.currentTimeMillis(), 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
+                    Calendar c = Calendar.getInstance();
+                    c.setTimeInMillis(millisUntilFinished);
+                    int days = c.get(Calendar.DAY_OF_MONTH) + c.get(Calendar.MONTH) + c.get(Calendar.YEAR);
+                    int hours = c.get(Calendar.HOUR);
+                    int minutes = c.get(Calendar.MINUTE);
+                    int seconds = c.get(Calendar.SECOND);
 
-
-                    int hours = (int) (millisUntilFinished / (1000*60*60)%24);
-                    int minutes = (int) (millisUntilFinished / (1000*60)%60);
-                    int seconds = (int) (millisUntilFinished / 1000) % 60;
-                    if(hours > 0){
+                    if(days>0) {
+                        holder.itemTimerView.setText(" " + days + "d: "+ hours + "h: "+minutes+"m: "+seconds+"s");
+                    }
+                    else if(hours > 0){
                         holder.itemTimerView.setText(" "+ hours+" h:" + minutes + " m:"+seconds+" s");
                     }
                     else{

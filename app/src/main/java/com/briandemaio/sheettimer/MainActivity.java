@@ -135,15 +135,23 @@ public class MainActivity extends AppCompatActivity{
 
                     // Get Current Time
                     final Calendar c = Calendar.getInstance();
-                    final int mYear = c.get(Calendar.YEAR);
-                    final int mMonth = c.get(Calendar.MONTH);
-                    final int mDay = c.get(Calendar.DAY_OF_MONTH);
-                    final int mHour = c.get(Calendar.HOUR_OF_DAY);
-                    final int mMinute = c.get(Calendar.MINUTE);
+                    int mYear = c.get(Calendar.YEAR);
+                    int mMonth = c.get(Calendar.MONTH);
+                    int mDay = c.get(Calendar.DAY_OF_MONTH);
 
                     DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                         @Override
-                        public void onDateSet(DatePicker view, final int year, final int month, final int dayOfMonth) {
+                        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                            //Get set expiration year, month and date for future use
+                            final int expirYear = year;
+                            final int expirMonth = month + 1;
+                            final int expirDay= dayOfMonth;
+
+                            //get current hour of day and minute
+                            int mHour = c.get(Calendar.HOUR_OF_DAY);
+                            int mMinute = c.get(Calendar.MINUTE);
+
                             // Launch Time Picker Dialog
                             TimePickerDialog timePickerDialog = new TimePickerDialog(v.getContext(),
                                     new TimePickerDialog.OnTimeSetListener() {
@@ -151,7 +159,8 @@ public class MainActivity extends AppCompatActivity{
                                         public void onTimeSet(TimePicker view, int hourOfDay,
                                                               int minute) {
                                             Item item = adapter.getItemAtPosition(position);
-                                            long expiryTime = (year * 31556952000L) + (month * 2629746000L) + (dayOfMonth * 86400000) + (hourOfDay*3600000) + (minute * 60000);
+
+                                            long expiryTime = (expirYear + expirMonth + expirDay + hourOfDay + minute);
                                             item.setExpiryTime(expiryTime);
                                             setItemTimeAlarm(item);
                                             mItemViewModel.update(item);
