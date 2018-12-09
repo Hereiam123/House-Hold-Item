@@ -177,6 +177,7 @@ public class MainActivity extends AppCompatActivity{
                             timePickerDialog.show();
                         }
                     }, mYear, mMonth, mDay);
+                    datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                     datePickerDialog.show();
                 }
                 else{
