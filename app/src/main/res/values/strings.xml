@@ -7,7 +7,7 @@
     <string name="added_item">Added Item</string>
     <string name="button_to_clean_item">Button to clean the item</string>
     <string name="item_chosen_for_adding">Item chosen for adding</string>
-    <string name="item_name_placeholder">Enter Where Item is Located</string>
+    <string name="item_name_placeholder">Enter Where Cleaning Task is Located</string>
 
     <string-array
         name="item_types_array">
@@ -58,9 +58,21 @@
         <item name = "lunch_table">Lunch Table</item>
         <item name = "rocking_chair">Rocking Chair</item>
         <item name = "baby_cot">Baby Cot</item>
-        <item name = "television_set_with_cabinet">Television Set with cabinet</item>
+        <item name = "television_set_with_cabinet">Television Set</item>
         <item name = "dinner_table_2">Dinner Table II</item>
         <item name = "double_bed_2">Double Bed II</item>
+        <item name = "bathtub">Bathtub</item>
+        <item name = "vacuum">Vacuum</item>
+        <item name = "windows">Windows</item>
+        <item name = "toilet">Toilet</item>
+        <item name = "garbage">Garbage</item>
+        <item name = "squegee">Squegee</item>
+        <item name = "toilet_scrub">Toilet Scrub</item>
+        <item name = "iron_clothes">Iron Clothes</item>
+        <item name = "wash_dishes">Wash Dishes</item>
+        <item name = "clean_tile">Clean Tile</item>
+        <item name = "scrub">Scrub</item>
+        <item name = "sweep">Sweep</item>
     </string-array>
 
     <string name="next">NEXT</string>
@@ -76,8 +88,8 @@
     <string name="slide_3_title">Swipe away the Trash</string>
     <string name="slide_3_desc">Swipe left or right on an added Household Item to view menu options!</string>
 
-    <string name="slide_4_title">Click the Walk Button</string>
-    <string name="slide_4_desc">Click on the Walk Icon to reset a friends timer!</string>
+    <string name="slide_4_title">Click the Update Button</string>
+    <string name="slide_4_desc">Click on the Update Icon to reset a task timer!</string>
 
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>

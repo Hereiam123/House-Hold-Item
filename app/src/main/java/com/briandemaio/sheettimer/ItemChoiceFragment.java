@@ -21,7 +21,7 @@ public class ItemChoiceFragment extends Fragment {
 
         ArrayList<Item> items = new ArrayList<Item>();
 
-        for(int i=0; i<=49; i++) {
+        for(int i=0; i<=61; i++) {
             int itemNum = i+1;
             items.add(new Item(itemTypes[i],getResources().getIdentifier("household_item_"+itemNum,"drawable", getContext().getPackageName())));
         }

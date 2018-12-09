@@ -37,7 +37,7 @@
         android:layout_marginEnd="8dp">
         <ImageButton
             android:id="@+id/recycler_reset_timer"
-            android:src="@drawable/household_item_1"
+            android:src="@drawable/household_item_62"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="fitCenter"

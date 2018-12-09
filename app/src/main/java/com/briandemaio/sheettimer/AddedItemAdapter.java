@@ -96,10 +96,12 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
             itemImageView = itemView.findViewById(R.id.recycler_imageview_item_art);
             itemTimerView = itemView.findViewById(R.id.recycler_textview_item_timeleft);
             itemResetView = itemView.findViewById(R.id.recycler_reset_timer);
+
             itemResetView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     clickListener.onWalkItemClick(view, getAdapterPosition());
+
                 }
             });
         }
