@@ -31,7 +31,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         PendingIntent contentPendingIntent = PendingIntent.getActivity
                 (context, mId, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_paws)
+                .setSmallIcon(R.drawable.paws)
                 .setContentTitle("Walk Me!")
                 .setContentText("You should walk "+mName+", your friend!")
                 .setContentIntent(contentPendingIntent)

@@ -56,7 +56,7 @@ public class AddedDoggyAdapter extends RecyclerView.Adapter<AddedDoggyAdapter.Do
 
                 @Override
                 public void onFinish() {
-                    holder.doggyTimerView.setText("All Done");
+                    holder.doggyTimerView.setText("Take me for a Walk!");
                 }
             }.start();
 
