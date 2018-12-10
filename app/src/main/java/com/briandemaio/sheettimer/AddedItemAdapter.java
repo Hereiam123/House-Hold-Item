@@ -108,9 +108,9 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
             itemResetView = itemView.findViewById(R.id.recycler_reset_timer);
             itemEditTimerView = itemView.findViewById(R.id.recycler_edit_timer);
 
-            if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N) {
+            /*if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N) {
                 itemEditTimerView.findViewById(R.id.recycler_edit_timer).setVisibility(View.GONE);
-            }
+            }*/
 
             itemResetView.setOnClickListener(new View.OnClickListener() {
                 @Override
