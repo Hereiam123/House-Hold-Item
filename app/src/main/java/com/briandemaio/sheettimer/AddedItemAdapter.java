@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
-import java.util.Calendar;
 import java.util.List;
 
 public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.ItemViewHolder> {
@@ -65,7 +64,7 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
 
                 @Override
                 public void onFinish() {
-                    holder.itemTimerView.setText("Take me for a Walk!");
+                    holder.itemTimerView.setText("Task timer ended!");
                 }
             }.start();
 
@@ -115,7 +114,7 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
             itemResetView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    clickListener.onWalkItemClick(view, getAdapterPosition());
+                    clickListener.onCleanItemClick(view, getAdapterPosition());
                 }
             });
 
@@ -133,7 +132,7 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
     }
 
     public interface ClickListener {
-        void onWalkItemClick(View v, int position);
+        void onCleanItemClick(View v, int position);
         void onEditTimeClick(View v, int position);
     }
 }

@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity{
 
             adapter.setOnItemClickListener(new AddedItemAdapter.ClickListener()  {
             @Override
-            public void onWalkItemClick(View v, int position) {
+            public void onCleanItemClick(View v, int position) {
                 Item item = adapter.getItemAtPosition(position);
                 long expiryTime = System.currentTimeMillis() + getResources().getInteger(R.integer.default_timer_value);
                 item.setExpiryTime(expiryTime);
