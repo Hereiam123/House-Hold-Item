@@ -6,9 +6,8 @@ android {
         applicationId "com.briandemaio.sheettimer"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 2
+        versionName "2.0"
     }
     buildTypes {
         release {
@@ -22,10 +21,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
+
     // Room components
     implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
-    androidTestImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
 
     // Lifecycle components
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
@@ -34,7 +33,4 @@ dependencies {
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.google.android.gms:play-services-ads:17.1.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
