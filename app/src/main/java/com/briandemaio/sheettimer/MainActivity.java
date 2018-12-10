@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        adapter.setOnItemClickListener(new AddedItemAdapter.ClickListener()  {
+            adapter.setOnItemClickListener(new AddedItemAdapter.ClickListener()  {
             @Override
             public void onWalkItemClick(View v, int position) {
                 Item item = adapter.getItemAtPosition(position);
@@ -132,8 +132,6 @@ public class MainActivity extends AppCompatActivity{
 
             @Override
             public void onEditTimeClick(final View v, final int position) {
-
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
 
                     // Get Current Time
                     final Calendar c = Calendar.getInstance();
@@ -179,10 +177,6 @@ public class MainActivity extends AppCompatActivity{
                     }, mYear, mMonth, mDay);
                     datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                     datePickerDialog.show();
-                }
-                else{
-                    v.findViewById(R.id.recycler_edit_timer).setVisibility(View.GONE);
-                }
             }
         });
 
