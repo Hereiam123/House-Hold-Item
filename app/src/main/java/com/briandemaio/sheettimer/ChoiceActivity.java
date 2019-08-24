@@ -1,17 +1,21 @@
 package com.briandemaio.sheettimer;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 
 public class ChoiceActivity extends AppCompatActivity implements
         ItemChoiceAdapter.OnItemSelectedListener, ItemNameFragment.OnItemNameFragmentInteractionListener {
 
     public static final String EXTRA_REPLY =
             "com.briandemaio.sheettimer.REPLY";
+    static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private int mUpdateId;
     private long mUpdateTime;
@@ -46,10 +50,15 @@ public class ChoiceActivity extends AppCompatActivity implements
                 .replace(R.id.item_choice_placeholder, choiceFragment).commit();
     }
 
+
     @Override
-    public void onItemSelected(int imageId) {
+    public void onItemSelected(int imageId, int itemId) {
         Bundle args = new Bundle();
-        if (getResources().getBoolean(R.bool.twoPaneMode)) {
+        if(itemId==0){
+            Intent myIntent = new Intent(this, CreateTaskActivity.class);
+            startActivity(myIntent);
+        }
+        else if (getResources().getBoolean(R.bool.twoPaneMode)) {
         ItemNameFragment fragment = (ItemNameFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.nameFragment);
             fragment.setImage(imageId);

@@ -1,7 +1,7 @@
 package com.briandemaio.sheettimer;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +20,8 @@ public class ItemChoiceFragment extends Fragment {
         String[] itemTypes = getResources().getStringArray(R.array.item_types_array);
 
         ArrayList<Item> items = new ArrayList<Item>();
+        Item camera = new Item("Create Task", R.drawable.camera);
+        items.add(camera);
 
         for(int i=0; i<=61; i++) {
             int itemNum = i+1;

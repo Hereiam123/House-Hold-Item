@@ -8,89 +8,90 @@
     <string name="button_to_clean_item">Button to clean the item</string>
     <string name="item_chosen_for_adding">Item chosen for adding</string>
     <string name="item_name_placeholder">Enter Where Cleaning Task is Located</string>
-
-    <string-array
-        name="item_types_array">
-        <item name = "single_sofa">Single Sofa</item>
-        <item name = "double_sofa">Double Sofa</item>
-        <item name = "large_sofa">Large Sofa</item>
-        <item name = "double_bed">Double Bed</item>
-        <item name = "single_bed">Single Bed</item>
-        <item name = "dressing_table">Dressing Table</item>
-        <item name = "bedroom_chair">Bedroom Chair</item>
-        <item name = "table_with_drawers">Table with Drawers</item>
-        <item name = "cabinets">Cabinets</item>
-        <item name = "table">Table</item>
-        <item name = "chair">Chair</item>
-        <item name = "mirror">Mirror</item>
-        <item name = "small_table">Small Table</item>
-        <item name = "working_table">Working Table</item>
-        <item name = "large_clock">Large Clock</item>
-        <item name = "table_with_drawers_2">Table with Drawers II</item>
-        <item name = "working_desk">Working Desk</item>
-        <item name = "shelves_cabinet">Shelves Cabinet</item>
-        <item name = "table_with_shelves">Table with Shelves</item>
-        <item name = "chair_2">Chair II</item>
-        <item name = "cupboard">Cupboard</item>
-        <item name = "comfortable_chair">Comfortable Chair</item>
-        <item name = "stylish_chair">Stylish Chair</item>
-        <item name = "stand">Stand</item>
-        <item name = "lamp_with_stand">Lamp with stand</item>
-        <item name = "decoration_table">Decoration Table</item>
-        <item name = "dining_table">Dining Table</item>
-        <item name = "curtains">Curtains</item>
-        <item name = "book_shelf">Book Shelf</item>
-        <item name = "office_chair">Office Chair</item>
-        <item name = "office_chair_2">Office Chair II</item>
-        <item name = "office_chair_3">Office Chair III</item>
-        <item name = "simple_desk">Simple Desk</item>
-        <item name = "bunk_bed">Bunk bed</item>
-        <item name = "cupbaord_with_shelves">Cupboard with Shelves</item>
-        <item name = "stool">Stool</item>
-        <item name = "stand">Stand</item>
-        <item name = "bench">Bench</item>
-        <item name = "lamps_stand">Lamps Stand</item>
-        <item name = "conference_room_chair">Conference Room Chair</item>
-        <item name = "conference_table">Conference Table</item>
-        <item name = "tea_table">Tea Table</item>
-        <item name = "office_desk">Office Desk</item>
-        <item name = "studying_desk">Studying Desk</item>
-        <item name = "lunch_table">Lunch Table</item>
-        <item name = "rocking_chair">Rocking Chair</item>
-        <item name = "baby_cot">Baby Cot</item>
-        <item name = "television_set_with_cabinet">Television Set</item>
-        <item name = "dinner_table_2">Dinner Table II</item>
-        <item name = "double_bed_2">Double Bed II</item>
-        <item name = "bathtub">Bathtub</item>
-        <item name = "vacuum">Vacuum</item>
-        <item name = "windows">Windows</item>
-        <item name = "toilet">Toilet</item>
-        <item name = "garbage">Garbage</item>
-        <item name = "squegee">Squegee</item>
-        <item name = "toilet_scrub">Toilet Scrub</item>
-        <item name = "iron_clothes">Iron Clothes</item>
-        <item name = "wash_dishes">Wash Dishes</item>
-        <item name = "clean_tile">Clean Tile</item>
-        <item name = "scrub">Scrub</item>
-        <item name = "sweep">Sweep</item>
-    </string-array>
+    <string name="new_task">Enter name of new task</string>
+    <string name="save_task">Save new task</string>
 
     <string name="next">NEXT</string>
+
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
-
     <string name="slide_1_title">Welcome!</string>
+
     <string name="slide_1_desc">How Often To - Clean the House!</string>
-
     <string name="slide_2_title">Add Your Household Items!</string>
+
     <string name="slide_2_desc">Click the Plus Button to start adding!</string>
-
     <string name="slide_3_title">Swipe away the Trash</string>
+
     <string name="slide_3_desc">Swipe left or right on an added Household Item to view menu options!</string>
-
     <string name="slide_4_title">Click the Update Button</string>
-    <string name="slide_4_desc">Click on the Update Icon to reset a task timer!</string>
 
+    <string name="slide_4_desc">Click on the Update Icon to reset a task timer!</string>
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+
     <string name="play_again">Play Again</string>
+    <string-array name="item_types_array">
+        <item name="single_sofa">Single Sofa</item>
+        <item name="double_sofa">Double Sofa</item>
+        <item name="large_sofa">Large Sofa</item>
+        <item name="double_bed">Double Bed</item>
+        <item name="single_bed">Single Bed</item>
+        <item name="dressing_table">Dressing Table</item>
+        <item name="bedroom_chair">Bedroom Chair</item>
+        <item name="table_with_drawers">Table with Drawers</item>
+        <item name="cabinets">Cabinets</item>
+        <item name="table">Table</item>
+        <item name="chair">Chair</item>
+        <item name="mirror">Mirror</item>
+        <item name="small_table">Small Table</item>
+        <item name="working_table">Working Table</item>
+        <item name="large_clock">Large Clock</item>
+        <item name="table_with_drawers_2">Table with Drawers II</item>
+        <item name="working_desk">Working Desk</item>
+        <item name="shelves_cabinet">Shelves Cabinet</item>
+        <item name="table_with_shelves">Table with Shelves</item>
+        <item name="chair_2">Chair II</item>
+        <item name="cupboard">Cupboard</item>
+        <item name="comfortable_chair">Comfortable Chair</item>
+        <item name="stylish_chair">Stylish Chair</item>
+        <item name="stand">Stand</item>
+        <item name="lamp_with_stand">Lamp with stand</item>
+        <item name="decoration_table">Decoration Table</item>
+        <item name="dining_table">Dining Table</item>
+        <item name="curtains">Curtains</item>
+        <item name="book_shelf">Book Shelf</item>
+        <item name="office_chair">Office Chair</item>
+        <item name="office_chair_2">Office Chair II</item>
+        <item name="office_chair_3">Office Chair III</item>
+        <item name="simple_desk">Simple Desk</item>
+        <item name="bunk_bed">Bunk bed</item>
+        <item name="cupbaord_with_shelves">Cupboard with Shelves</item>
+        <item name="stool">Stool</item>
+        <item name="stand">Stand</item>
+        <item name="bench">Bench</item>
+        <item name="lamps_stand">Lamps Stand</item>
+        <item name="conference_room_chair">Conference Room Chair</item>
+        <item name="conference_table">Conference Table</item>
+        <item name="tea_table">Tea Table</item>
+        <item name="office_desk">Office Desk</item>
+        <item name="studying_desk">Studying Desk</item>
+        <item name="lunch_table">Lunch Table</item>
+        <item name="rocking_chair">Rocking Chair</item>
+        <item name="baby_cot">Baby Cot</item>
+        <item name="television_set_with_cabinet">Television Set</item>
+        <item name="dinner_table_2">Dinner Table II</item>
+        <item name="double_bed_2">Double Bed II</item>
+        <item name="bathtub">Bathtub</item>
+        <item name="vacuum">Vacuum</item>
+        <item name="windows">Windows</item>
+        <item name="toilet">Toilet</item>
+        <item name="garbage">Garbage</item>
+        <item name="squegee">Squegee</item>
+        <item name="toilet_scrub">Toilet Scrub</item>
+        <item name="iron_clothes">Iron Clothes</item>
+        <item name="wash_dishes">Wash Dishes</item>
+        <item name="clean_tile">Clean Tile</item>
+        <item name="scrub">Scrub</item>
+        <item name="sweep">Sweep</item>
+    </string-array>
 </resources>
