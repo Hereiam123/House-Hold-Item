@@ -5,18 +5,18 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import android.content.Context;
 
-@Database(entities = {Item.class}, version = 2, exportSchema = false)
-public abstract class ItemRoomDatabase extends RoomDatabase {
-    public abstract ItemDao itemDao();
-    private static ItemRoomDatabase INSTANCE;
+@Database(entities = {Task.class}, version = 2, exportSchema = false)
+public abstract class TaskRoomDatabase extends RoomDatabase {
+    public abstract TaskDao taskDao();
+    private static TaskRoomDatabase INSTANCE;
 
-    public static ItemRoomDatabase getDatabase(final Context context) {
+    public static TaskRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (ItemRoomDatabase.class) {
                 if (INSTANCE == null) {
                     // Create database here
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            ItemRoomDatabase.class, "item_database")
+                            TaskRoomDatabase.class, "task_database")
                             .fallbackToDestructiveMigration()
                             .build();
                 }

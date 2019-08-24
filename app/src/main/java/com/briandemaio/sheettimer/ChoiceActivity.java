@@ -1,14 +1,18 @@
 package com.briandemaio.sheettimer;
 
 import android.content.Intent;
+
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.provider.MediaStore;
+
+import java.util.List;
 
 public class ChoiceActivity extends AppCompatActivity implements
         ItemChoiceAdapter.OnItemSelectedListener, ItemNameFragment.OnItemNameFragmentInteractionListener {
@@ -19,6 +23,9 @@ public class ChoiceActivity extends AppCompatActivity implements
 
     private int mUpdateId;
     private long mUpdateTime;
+    public static TaskViewModel mTaskViewModel;
+    private static List<Task> allTasks;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +52,22 @@ public class ChoiceActivity extends AppCompatActivity implements
             }
         }
 
+        mTaskViewModel = ViewModelProviders.of(this).get(TaskViewModel.class);
+        mTaskViewModel.getAllTask().observe(this, new Observer<List<Task>>() {
+            @Override
+            public void onChanged(@Nullable final List<Task> tasks) {
+                allTasks = tasks;
+            }
+        });
+
         ItemChoiceFragment choiceFragment = new ItemChoiceFragment();
         manager.beginTransaction()
                 .replace(R.id.item_choice_placeholder, choiceFragment).commit();
     }
 
+    public static List<Task> getTasks(){
+        return allTasks;
+    }
 
     @Override
     public void onItemSelected(int imageId, int itemId) {

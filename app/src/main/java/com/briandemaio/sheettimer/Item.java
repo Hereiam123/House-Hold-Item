@@ -20,6 +20,7 @@ public class Item {
     private long expiryTime;
 
     private int imageResource;
+    private String stringImageResource;
 
     public Item(@NonNull String name, @NonNull int imageResource, @NonNull long expiryTime) {
         this.name = name;
@@ -37,6 +38,28 @@ public class Item {
     public Item(@NonNull String name, @NonNull int imageResource) {
         this.name = name;
         this.imageResource = imageResource;
+    }
+
+    @Ignore
+    public Item(@NonNull String name, @NonNull String stringImageResource) {
+        this.name = name;
+        this.stringImageResource = stringImageResource;
+    }
+
+    public void setName(@NonNull String name) {
+        this.name = name;
+    }
+
+    public void setImageResource(int imageResource) {
+        this.imageResource = imageResource;
+    }
+
+    public String getStringImageResource() {
+        return stringImageResource;
+    }
+
+    public void setStringImageResource(String stringImageResource) {
+        this.stringImageResource = stringImageResource;
     }
 
     public int getId() {

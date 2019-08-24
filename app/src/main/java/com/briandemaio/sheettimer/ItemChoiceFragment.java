@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ItemChoiceFragment extends Fragment {
 
@@ -19,9 +20,20 @@ public class ItemChoiceFragment extends Fragment {
         GridView gridView = view.findViewById(R.id.item_grid_view);
         String[] itemTypes = getResources().getStringArray(R.array.item_types_array);
 
-        ArrayList<Item> items = new ArrayList<Item>();
+        ArrayList<Item> items = new ArrayList<>();
         Item camera = new Item("Create Task", R.drawable.camera);
         items.add(camera);
+
+        List<Task> tasks = ChoiceActivity.getTasks();
+
+        if(tasks != null) {
+            for(Task task : tasks){
+                String taskName = task.getTask();
+                String taskImage = task.getImageResource();
+                Item newTask = new Item(taskName, taskImage);
+                items.add(newTask);
+            }
+        }
 
         for(int i=0; i<=61; i++) {
             int itemNum = i+1;
