@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "325169388582",
+    "firebase_url": "https://how-often-to-clean-the-house.firebaseio.com",
+    "project_id": "how-often-to-clean-the-house",
+    "storage_bucket": "how-often-to-clean-the-house.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325169388582:android:053879b5e5e627e9",
+        "android_client_info": {
+          "package_name": "com.briandemaio.sheettimer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "325169388582-h00o2uugm2qflcc696b5246frgsj071u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-hEsxqOQSh2Oqz6lbJNyt01CIDmyt_tk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "325169388582-h00o2uugm2qflcc696b5246frgsj071u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
