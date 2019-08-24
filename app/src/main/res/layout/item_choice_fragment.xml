@@ -10,7 +10,7 @@
         android:columnWidth="100dp"
         android:numColumns="auto_fit"
         android:verticalSpacing="10dp"
-        android:horizontalSpacing="10dp"
+        android:horizontalSpacing="50dp"
         android:stretchMode="columnWidth"
         />
 

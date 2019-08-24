@@ -23,7 +23,6 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-2580444339985264~2266710154"/>
-
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.Launcher">

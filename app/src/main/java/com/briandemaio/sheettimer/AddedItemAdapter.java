@@ -64,7 +64,7 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
 
                 @Override
                 public void onFinish() {
-                    holder.itemTimerView.setText("Take me for a Walk!");
+                    holder.itemTimerView.setText("Task timer ended!");
                 }
             }.start();
 
@@ -107,14 +107,14 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
             itemResetView = itemView.findViewById(R.id.recycler_reset_timer);
             itemEditTimerView = itemView.findViewById(R.id.recycler_edit_timer);
 
-            if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N) {
+            /*if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N) {
                 itemEditTimerView.findViewById(R.id.recycler_edit_timer).setVisibility(View.GONE);
-            }
+            }*/
 
             itemResetView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    clickListener.onWalkItemClick(view, getAdapterPosition());
+                    clickListener.onCleanItemClick(view, getAdapterPosition());
                 }
             });
 
@@ -132,7 +132,7 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
     }
 
     public interface ClickListener {
-        void onWalkItemClick(View v, int position);
+        void onCleanItemClick(View v, int position);
         void onEditTimeClick(View v, int position);
     }
 }

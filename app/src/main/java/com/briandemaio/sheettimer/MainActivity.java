@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity{
 
             adapter.setOnItemClickListener(new AddedItemAdapter.ClickListener()  {
             @Override
-            public void onWalkItemClick(View v, int position) {
+            public void onCleanItemClick(View v, int position) {
                 Item item = adapter.getItemAtPosition(position);
                 long expiryTime = System.currentTimeMillis() + getResources().getInteger(R.integer.default_timer_value);
                 item.setExpiryTime(expiryTime);
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity{
         });
 
         createNotificationChannel();
-        MobileAds.initialize(this, "ca-app-pub-2580444339985264~2266710154");
+        MobileAds.initialize(this, "ca-app-pub-2580444339985264~2889913723");
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
