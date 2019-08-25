@@ -20,13 +20,17 @@
     <string name="slide_1_desc">How Often To - Clean the House!</string>
     <string name="slide_2_title">Add Your Household Items!</string>
 
-    <string name="slide_2_desc">Click the Plus Button to start adding!</string>
+    <string name="slide_2_desc">Click the Plus Button to start adding your task schedule, or even add your own tasks while in the task selection screen!</string>
     <string name="slide_3_title">Swipe away the Trash</string>
 
     <string name="slide_3_desc">Swipe left or right on an added Household Item to view menu options!</string>
-    <string name="slide_4_title">Click the Update Button</string>
 
+    <string name="slide_4_title">Click the Update Button</string>
     <string name="slide_4_desc">Click on the Update Icon to reset a task timer!</string>
+
+    <string name="slide_5_title">You can now add your own tasks!</string>
+    <string name="slide_5_desc">Click on the plus icon in the task creation list</string>
+
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
 
     <string name="play_again">Play Again</string>
