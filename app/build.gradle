@@ -4,7 +4,6 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.briandemaio.sheettimer"
-        flavorChange
         minSdkVersion 20
         targetSdkVersion 29
         versionCode 5
