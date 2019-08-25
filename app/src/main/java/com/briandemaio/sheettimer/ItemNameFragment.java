@@ -20,6 +20,7 @@ public class ItemNameFragment extends Fragment {
     private EditText mEditNameView;
     private ImageView mItemImageView;
     private int mImageId;
+    private String mImageString;
     private OnItemNameFragmentInteractionListener mListener;
 
     @Override
@@ -36,9 +37,15 @@ public class ItemNameFragment extends Fragment {
 
         if(bundle != null){
             mImageId = bundle.getInt("imageId");
+            mImageString = bundle.getString("imageString");
         }
 
-        setImage(mImageId);
+        if(mImageId !=0) {
+            setImage(mImageId);
+        }
+        else{
+            setImageString(mImageString);
+        }
 
         final Button button = view.findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +74,11 @@ public class ItemNameFragment extends Fragment {
     public void setImage(int imageId){
         mImageId = imageId;
         Glide.with(getContext()).load(imageId).into(mItemImageView);
+    }
+
+    public void setImageString(String imageString){
+        mImageString = imageString;
+        Glide.with(getContext()).load(imageString).into(mItemImageView);
     }
 
     interface OnItemNameFragmentInteractionListener {

@@ -69,7 +69,7 @@ public class ItemChoiceAdapter extends BaseAdapter {
         imageView.setOnClickListener(new ImageView.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemSelected(item.getImageResource(), item.getId());
+                listener.onItemSelected(item.getImageResource(), item.getStringImageResource(), item.getName());
             }
         });
 
@@ -77,6 +77,6 @@ public class ItemChoiceAdapter extends BaseAdapter {
     }
 
     public interface OnItemSelectedListener {
-        void onItemSelected(int imageId, int itemId);
+        void onItemSelected(int imageId, String imageString, String itemName);
     }
 }

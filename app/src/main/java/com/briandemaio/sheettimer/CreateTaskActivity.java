@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -45,7 +46,7 @@ public class CreateTaskActivity extends AppCompatActivity {
                 }
                 else {
                     Task newTask = new Task(item, mUri.toString());
-                    ChoiceActivity.mTaskViewModel.insert(newTask);
+                    ChoiceActivity.db.taskDao().insert(newTask);
                     Intent myIntent = new Intent(CreateTaskActivity.this, ChoiceActivity.class);
                     startActivity(myIntent);
                 }

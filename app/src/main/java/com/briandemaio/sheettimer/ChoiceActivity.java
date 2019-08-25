@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import android.os.Bundle;
 
@@ -23,8 +25,8 @@ public class ChoiceActivity extends AppCompatActivity implements
 
     private int mUpdateId;
     private long mUpdateTime;
-    public static TaskViewModel mTaskViewModel;
     private static List<Task> allTasks;
+    static TaskRoomDatabase db;
 
 
     @Override
@@ -52,13 +54,8 @@ public class ChoiceActivity extends AppCompatActivity implements
             }
         }
 
-        mTaskViewModel = ViewModelProviders.of(this).get(TaskViewModel.class);
-        mTaskViewModel.getAllTask().observe(this, new Observer<List<Task>>() {
-            @Override
-            public void onChanged(@Nullable final List<Task> tasks) {
-                allTasks = tasks;
-            }
-        });
+        db = Room.databaseBuilder(this, TaskRoomDatabase.class, "MyDB").allowMainThreadQueries().build();
+        allTasks = db.taskDao().getAllItems();
 
         ItemChoiceFragment choiceFragment = new ItemChoiceFragment();
         manager.beginTransaction()
@@ -70,21 +67,31 @@ public class ChoiceActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onItemSelected(int imageId, int itemId) {
+    public void onItemSelected(int imageId, String imageString, String itemName) {
         Bundle args = new Bundle();
-        if(itemId==0){
+        if(itemName=="Create Task"){
             Intent myIntent = new Intent(this, CreateTaskActivity.class);
             startActivity(myIntent);
         }
         else if (getResources().getBoolean(R.bool.twoPaneMode)) {
         ItemNameFragment fragment = (ItemNameFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.nameFragment);
-            fragment.setImage(imageId);
+            if(imageId !=0) {
+                fragment.setImage(imageId);
+            }
+            else{
+                fragment.setImageString(imageString);
+            }
         } else {
             // replace the fragment
             // Create fragment and give it an argument for the selected article
             ItemNameFragment newFragment = new ItemNameFragment();
-            args.putInt("imageId", imageId);
+            if(imageId !=0){
+                args.putInt("imageId", imageId);
+            }
+            else{
+                args.putString("imageString", imageString);
+            }
             newFragment.setArguments(args);
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
@@ -109,7 +116,6 @@ public class ChoiceActivity extends AppCompatActivity implements
         setResult(RESULT_OK, replyIntent);
         finish();
     }
-
 }
 
 
