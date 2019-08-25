@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-
 public class ItemNameFragment extends Fragment {
 
     private EditText mEditNameView;
@@ -55,7 +54,7 @@ public class ItemNameFragment extends Fragment {
                     Toast.makeText(getActivity(), "You forgot to add a name!", Toast.LENGTH_LONG ).show();
                 }
                 else {
-                    mListener.onSetSave(item, mImageId);
+                    mListener.onSetSave(item, mImageId, mImageString);
                 }
             }
         });
@@ -82,6 +81,6 @@ public class ItemNameFragment extends Fragment {
     }
 
     interface OnItemNameFragmentInteractionListener {
-        void onSetSave(String item, int imageId);
+        void onSetSave(String item, int imageId, String mImageString);
     }
 }

@@ -68,7 +68,12 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
                 }
             }.start();
 
-            Glide.with(mContext).load(current.getImageResource()).into(holder.itemImageView);
+            if(current.getImageResource() != 0) {
+                Glide.with(mContext).load(current.getImageResource()).into(holder.itemImageView);
+            }
+            else{
+                Glide.with(mContext).load(current.getStringImageResource()).into(holder.itemImageView);
+            }
         } else {
             // Covers the case of data not being ready yet.
             holder.ItemView.setText("No Item");

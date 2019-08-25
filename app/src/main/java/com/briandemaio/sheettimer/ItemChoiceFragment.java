@@ -16,13 +16,20 @@ public class ItemChoiceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        final Bundle bundle = getArguments();
+
         View view = inflater.inflate(R.layout.item_choice_fragment, container, false);
         GridView gridView = view.findViewById(R.id.item_grid_view);
         String[] itemTypes = getResources().getStringArray(R.array.item_types_array);
 
         ArrayList<Item> items = new ArrayList<>();
-        Item camera = new Item("Create Task", R.drawable.camera);
-        items.add(camera);
+
+        if(bundle != null) {
+            if (bundle.getString("update?").equals("No update")) {
+                Item camera = new Item("Create Task", R.drawable.camera);
+                items.add(camera);
+            }
+        }
 
         List<Task> tasks = ChoiceActivity.getTasks();
 

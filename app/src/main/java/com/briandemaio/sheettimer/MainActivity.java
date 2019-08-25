@@ -242,14 +242,27 @@ public class MainActivity extends AppCompatActivity{
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Item item;
+        int imageIdExtra = data.getIntExtra("imageID", 0);
+        String imageStringExtra = data.getStringExtra("imageString");
         if (requestCode == NEW_ITEM_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             long triggerTime = System.currentTimeMillis() + getResources().getInteger(R.integer.default_timer_value);
-            Item item = new Item(data.getStringExtra(ChoiceActivity.EXTRA_REPLY), data.getIntExtra("imageID", 0), triggerTime);
+            if(imageIdExtra!=0) {
+                item = new Item(data.getStringExtra(ChoiceActivity.EXTRA_REPLY), imageIdExtra, triggerTime);
+            }
+            else{
+                item = new Item(data.getStringExtra(ChoiceActivity.EXTRA_REPLY), imageStringExtra, triggerTime);
+            }
             mItemViewModel.insert(item);
             setItemTimeAlarm(item);
         }
         else if(requestCode == UPDATE_ITEM_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-            Item item = new Item(data.getStringExtra(ChoiceActivity.EXTRA_REPLY), data.getIntExtra("imageID", 0));
+            if(imageIdExtra!=0) {
+                item = new Item(data.getStringExtra(ChoiceActivity.EXTRA_REPLY), imageIdExtra);
+            }
+            else{
+                item = new Item(data.getStringExtra(ChoiceActivity.EXTRA_REPLY), imageStringExtra);
+            }
             item.setId(data.getIntExtra("updateId",0));
             item.setExpiryTime(data.getLongExtra("updateTime", 0));
             mItemViewModel.update(item);

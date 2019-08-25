@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -84,6 +83,7 @@ public class CreateTaskActivity extends AppCompatActivity {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            Toast.makeText(CreateTaskActivity.this, "Add image of task to show on tasks list.", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -93,11 +93,11 @@ public class CreateTaskActivity extends AppCompatActivity {
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             mItemImageView.setImageBitmap(imageBitmap);
             mUri = getImageUri(getApplicationContext(), imageBitmap);
-            Toast.makeText(CreateTaskActivity.this,"Here "+ mUri, Toast.LENGTH_LONG).show();
         }
         else
         {
-            Toast.makeText(this, "Failed To Capture Image", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Failed To Capture Task Image", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 

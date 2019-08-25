@@ -2,15 +2,11 @@ package com.briandemaio.sheettimer;
 
 import android.content.Intent;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
-import androidx.room.RoomDatabase;
 
 import android.os.Bundle;
 
@@ -36,6 +32,9 @@ public class ChoiceActivity extends AppCompatActivity implements
         FragmentManager manager = getSupportFragmentManager();
         Intent intent = getIntent();
 
+        db = Room.databaseBuilder(this, TaskRoomDatabase.class, "MyDB").allowMainThreadQueries().build();
+        allTasks = db.taskDao().getAllItems();
+
         mUpdateId = intent.getIntExtra("updateId",0);
         mUpdateTime = intent.getLongExtra("updateTime", 0);
 
@@ -54,10 +53,15 @@ public class ChoiceActivity extends AppCompatActivity implements
             }
         }
 
-        db = Room.databaseBuilder(this, TaskRoomDatabase.class, "MyDB").allowMainThreadQueries().build();
-        allTasks = db.taskDao().getAllItems();
-
+        Bundle args = new Bundle();
+        if(mUpdateId != 0) {
+            args.putString("update?", "Update");
+        }
+        else{
+            args.putString("update?", "No update");
+        }
         ItemChoiceFragment choiceFragment = new ItemChoiceFragment();
+        choiceFragment.setArguments(args);
         manager.beginTransaction()
                 .replace(R.id.item_choice_placeholder, choiceFragment).commit();
     }
@@ -105,10 +109,11 @@ public class ChoiceActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onSetSave(String item, int imageId) {
+    public void onSetSave(String item, int imageId, String imageString) {
         Intent replyIntent = new Intent();
         replyIntent.putExtra(EXTRA_REPLY, item);
         replyIntent.putExtra("imageID", imageId);
+        replyIntent.putExtra("imageString", imageString);
         if(mUpdateId != 0){
             replyIntent.putExtra("updateId", mUpdateId);
             replyIntent.putExtra("updateTime", mUpdateTime);

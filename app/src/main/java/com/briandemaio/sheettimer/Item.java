@@ -29,6 +29,13 @@ public class Item {
     }
 
     @Ignore
+    public Item(@NonNull String name, @NonNull String stringImageResource, @NonNull long expiryTime) {
+        this.name = name;
+        this.stringImageResource = stringImageResource;
+        this.expiryTime = expiryTime;
+    }
+
+    @Ignore
     public Item(int id, @NonNull String name) {
         this.id = id;
         this.name = name;
