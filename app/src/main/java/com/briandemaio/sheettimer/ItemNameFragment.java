@@ -1,7 +1,6 @@
 package com.briandemaio.sheettimer;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.text.TextUtils;

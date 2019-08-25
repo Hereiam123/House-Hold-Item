@@ -50,7 +50,13 @@ public class ItemChoiceAdapter extends BaseAdapter {
         final ImageView imageView = (ImageView)convertView.findViewById(R.id.item_image);
         final TextView nameTextView = (TextView)convertView.findViewById(R.id.item_name_text);
 
-        Glide.with(mContext).load(item.getImageResource()).into(imageView);
+        if(item.getImageResource() == 0) {
+            Glide.with(mContext).load(item.getStringImageResource()).into(imageView);
+        }
+        else{
+            Glide.with(mContext).load(item.getImageResource()).into(imageView);
+        }
+
         nameTextView.setText(item.getName());
 
         if (mContext instanceof OnItemSelectedListener) {
