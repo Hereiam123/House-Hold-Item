@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class ChoiceActivity extends AppCompatActivity implements
 
         db = Room.databaseBuilder(this, TaskRoomDatabase.class, "MyDB").allowMainThreadQueries().build();
         allTasks = db.taskDao().getAllItems();
+        db.close();
 
         mUpdateId = intent.getIntExtra("updateId",0);
         mUpdateTime = intent.getLongExtra("updateTime", 0);
@@ -105,6 +107,21 @@ public class ChoiceActivity extends AppCompatActivity implements
 
             // Commit the transaction
             transaction.commit();
+        }
+    }
+
+    @Override
+    public void onItemLongSelected(String imageString, String itemName) {
+        if(imageString != null) {
+            db = Room.databaseBuilder(this, TaskRoomDatabase.class, "MyDB").allowMainThreadQueries().build();
+            db.taskDao().deleteItem(imageString);
+            db.close();
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Task "+ itemName+ " deleted",
+                    Toast.LENGTH_LONG).show();
         }
     }
 

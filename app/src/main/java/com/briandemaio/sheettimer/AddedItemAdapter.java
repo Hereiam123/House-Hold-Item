@@ -124,10 +124,10 @@ public class AddedItemAdapter extends RecyclerView.Adapter<AddedItemAdapter.Item
             });
 
             itemEditTimerView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    clickListener.onEditTimeClick(view, getAdapterPosition());
-                }
+                    @Override
+                    public void onClick(View view) {
+                        clickListener.onEditTimeClick(view, getAdapterPosition());
+                    }
             });
         }
     }

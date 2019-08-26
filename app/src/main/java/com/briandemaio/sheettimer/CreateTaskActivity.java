@@ -1,6 +1,7 @@
 package com.briandemaio.sheettimer;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -46,8 +47,9 @@ public class CreateTaskActivity extends AppCompatActivity {
                     Task newTask = new Task(item, mUri.toString());
                     ChoiceActivity.db.taskDao().insert(newTask);
                     Intent myIntent = new Intent(CreateTaskActivity.this, MainActivity.class);
-                    Toast.makeText(CreateTaskActivity.this, "Task successfully created!", Toast.LENGTH_LONG).show();
                     startActivity(myIntent);
+                    Toast.makeText(CreateTaskActivity.this, "Created new task " + newTask.getTask(), Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
         });
@@ -92,16 +94,17 @@ public class CreateTaskActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             mItemImageView.setImageBitmap(imageBitmap);
-            mUri = getImageUri(imageBitmap);
+            mUri = getImageUri(getApplicationContext(), imageBitmap);
         }
         else
         {
             Toast.makeText(this, "Failed To Capture Task Image", Toast.LENGTH_SHORT).show();
+            finish();
             startActivity(new Intent(this, MainActivity.class));
         }
     }
 
-    private Uri getImageUri(Bitmap photo) {
+    private Uri getImageUri(Context applicationContext, Bitmap photo) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         photo.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
         String path = MediaStore.Images.Media.insertImage(CreateTaskActivity.this.getContentResolver(), photo, "Title", null);
