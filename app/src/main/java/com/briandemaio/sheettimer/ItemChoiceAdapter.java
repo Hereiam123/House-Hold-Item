@@ -73,10 +73,19 @@ public class ItemChoiceAdapter extends BaseAdapter {
             }
         });
 
+        imageView.setOnLongClickListener(new ImageView.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                listener.onItemLongSelected(item.getStringImageResource(), item.getName());
+                return false;
+            }
+        });
+
         return convertView;
     }
 
     public interface OnItemSelectedListener {
         void onItemSelected(int imageId, String imageString, String itemName);
+        void onItemLongSelected(String imageString, String itemName);
     }
 }

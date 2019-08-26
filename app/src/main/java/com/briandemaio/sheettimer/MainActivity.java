@@ -243,9 +243,11 @@ public class MainActivity extends AppCompatActivity{
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Item item;
-        int imageIdExtra = data.getIntExtra("imageID", 0);
-        String imageStringExtra = data.getStringExtra("imageString");
+        int imageIdExtra;
+        String imageStringExtra;
         if (requestCode == NEW_ITEM_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+             imageIdExtra = data.getIntExtra("imageID", 0);
+            imageStringExtra = data.getStringExtra("imageString");
             long triggerTime = System.currentTimeMillis() + getResources().getInteger(R.integer.default_timer_value);
             if(imageIdExtra!=0) {
                 item = new Item(data.getStringExtra(ChoiceActivity.EXTRA_REPLY), imageIdExtra, triggerTime);
@@ -257,6 +259,8 @@ public class MainActivity extends AppCompatActivity{
             setItemTimeAlarm(item);
         }
         else if(requestCode == UPDATE_ITEM_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            imageIdExtra = data.getIntExtra("imageID", 0);
+            imageStringExtra = data.getStringExtra("imageString");
             if(imageIdExtra!=0) {
                 item = new Item(data.getStringExtra(ChoiceActivity.EXTRA_REPLY), imageIdExtra);
             }

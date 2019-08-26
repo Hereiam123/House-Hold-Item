@@ -17,8 +17,8 @@ public interface TaskDao {
     @Update
     void update(Task... task);
 
-    @Delete
-    void deleteItem(Task task);
+    @Query("DELETE from task_table WHERE imageResource = :imageString")
+    void deleteItem(String imageString);
 
     @Query("SELECT * from task_table ORDER BY task ASC")
     List<Task> getAllItems();

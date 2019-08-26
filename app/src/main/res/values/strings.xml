@@ -29,7 +29,7 @@
     <string name="slide_4_desc">Click on the Update Icon to reset a task timer!</string>
 
     <string name="slide_5_title">You can now add your own tasks!</string>
-    <string name="slide_5_desc">Click on the plus icon in the task creation list</string>
+    <string name="slide_5_desc">Click on the plus icon in the task creation list. Long press custom tasks in choice list, and it will be deleted!</string>
 
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
 
