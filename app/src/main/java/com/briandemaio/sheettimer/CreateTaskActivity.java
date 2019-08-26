@@ -46,8 +46,10 @@ public class CreateTaskActivity extends AppCompatActivity {
                 else {
                     Task newTask = new Task(item, mUri.toString());
                     ChoiceActivity.db.taskDao().insert(newTask);
-                    Intent myIntent = new Intent(CreateTaskActivity.this, ChoiceActivity.class);
+                    Intent myIntent = new Intent(CreateTaskActivity.this, MainActivity.class);
                     startActivity(myIntent);
+                    Toast.makeText(CreateTaskActivity.this, "Created new task " + newTask.getTask(), Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
         });
@@ -98,6 +100,7 @@ public class CreateTaskActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Failed To Capture Task Image", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, MainActivity.class));
+            finish();
         }
     }
 
