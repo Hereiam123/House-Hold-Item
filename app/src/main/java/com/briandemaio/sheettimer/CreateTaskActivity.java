@@ -137,9 +137,15 @@ public class CreateTaskActivity extends AppCompatActivity {
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                Toast.makeText(this, "Failed To Capture Task Image", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(new Intent(this, MainActivity.class));
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                Toast.makeText(this, "Failed To Capture Task Image", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(new Intent(this, MainActivity.class));
             }
         }
         else
