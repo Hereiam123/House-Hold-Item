@@ -1,12 +1,12 @@
 package com.briandemaio.sheettimer;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,8 +18,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
-import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static com.briandemaio.sheettimer.ChoiceActivity.REQUEST_IMAGE_CAPTURE;
 
@@ -28,6 +33,8 @@ public class CreateTaskActivity extends AppCompatActivity {
     private EditText mEditNameView;
     private ImageView mItemImageView;
     private Uri mUri;
+    String currentPhotoPath;
+    static final int REQUEST_TAKE_PHOTO = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,20 +88,59 @@ public class CreateTaskActivity extends AppCompatActivity {
         dispatchTakePictureIntent();
     }
 
-    private void dispatchTakePictureIntent(){
+
+    private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            Toast.makeText(CreateTaskActivity.this, "Add image of task to show on tasks list.", Toast.LENGTH_LONG).show();
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                mUri = FileProvider.getUriForFile(this,
+                        "com.briandemaio.android.fileprovider",
+                        photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+                Toast.makeText(CreateTaskActivity.this, "Add image of task to show on tasks list.", Toast.LENGTH_LONG).show();
+            }
         }
+    }
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            mItemImageView.setImageBitmap(imageBitmap);
-            mUri = getImageUri(getApplicationContext(), imageBitmap);
+            Bitmap imageBitmap;
+            try {
+                imageBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), mUri);
+                mItemImageView.setImageBitmap(imageBitmap);
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
         else
         {
@@ -102,12 +148,5 @@ public class CreateTaskActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, MainActivity.class));
         }
-    }
-
-    private Uri getImageUri(Context applicationContext, Bitmap photo) {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        photo.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        String path = MediaStore.Images.Media.insertImage(CreateTaskActivity.this.getContentResolver(), photo, "Title", null);
-        return Uri.parse(path);
     }
 }
